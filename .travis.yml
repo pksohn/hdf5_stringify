@@ -4,7 +4,7 @@ python:
   - "3.5"
 # command to install dependencies
 install:
-- pip install numpy pandas pytest
+- pip install numpy pandas pytest pytables
 
 # command to run tests
 script:
