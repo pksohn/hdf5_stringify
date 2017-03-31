@@ -95,16 +95,17 @@ def convert_store(store_path, suffix):
     filename_no_ext = filename.split('.')[0]
     new_filename = '{}_{}.h5'.format(filename_no_ext, suffix)
     new_filepath = os.path.join(dirname, new_filename)
-    new_store = pd.HDFStore(new_filepath, mode='w')
+    new_store = pd.HDFStore(new_filepath, mode='w',
+                            complib='zlib', complevel=1)
 
     with pd.HDFStore(store_path, mode='r') as store:
         for name in store.keys():
             table = store[name]
             if check_df_for_bytes(table):
                 new_table = decode_byte_df(table)
-                new_store.put(name, new_table)
+                new_store.put(name, new_table, format='table')
             else:
-                new_store.put(name, table)
+                new_store.put(name, table, format='table')
 
 
 if __name__ == '__main__':
