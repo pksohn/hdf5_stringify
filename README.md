@@ -1,5 +1,7 @@
 # HDF5 Stringify Utility
 
+[![Build Status](https://travis-ci.org/pksohn/hdf5_stringify.svg?branch=master)](https://travis-ci.org/pksohn/hdf5_stringify)
+
 This utility is meant to easily convert HDF5 files containing DataFrames that have `bytes` types (or the related `numpy.bytes_` types) as any of the following:
  
  * Index name (single index)
