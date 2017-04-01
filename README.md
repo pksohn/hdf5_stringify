@@ -12,7 +12,10 @@ This utility is meant to easily convert HDF5 files containing DataFrames that ha
  
  ## Dependencies
  
+ Recommend Anaconda with:
+ 
  * Pandas
+ * PyTables
  * Numpy
  * Pytest (for unit tests)
  
@@ -24,18 +27,20 @@ python stringify.py [path to HFD5 file] -s [optional suffix]
 
 ## Examples
 
-This will take the model_data.h5 file, convert it, and save as model_data_new.h5:
-
-```
-python stringify.py path/to/model_data.h5 -s new
-```
-
 Default suffix is "converted":
  
 ```
 python stringify.py path/to/model_data.h5
 
 # Creates path/to/model_data_converted.h5
+```
+
+Set your own suffix with `-s` option:
+
+```
+python stringify.py path/to/model_data.h5 -s new
+
+# Creates path/to/model_data_new.h5
 ```
 
 ## Details
