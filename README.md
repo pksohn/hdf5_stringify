@@ -37,3 +37,15 @@ python stringify.py path/to/model_data.h5
 
 # Creates path/to/model_data_converted.h5
 ```
+
+## Details
+
+The conversion process has a few hardcoded defaults for now. 
+
+1) New HDF5 store is created using `pandas.HDFStore()` with the following compression settings:
+`complib='zlib', complevel=1`
+2) Tables are modified and copied over in the `table` format, like so:
+
+```
+new_store.put(name, new_table, format='table')
+```
